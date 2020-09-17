@@ -1,0 +1,19 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+60}}px">
+
+<view class="item" wx:for="{{list}}" wx:key="i" wx:index="index" bindtap="go" data-url="/pages/index/index?id={{item.id}}">
+<image src="{{item.logo}}"></image>
+<view class="title">{{item.name}}</view>
+<view class="price">{{item.phone}}</view>
+<view class="info">{{item.addr}}</view>
+</view>
+
+
+
+
+
+</view>
+<template is="login" data="{{login_show}}"></template>

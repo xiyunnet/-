@@ -1,0 +1,64 @@
+.main{float: left;width: 100%;padding:15px;padding-bottom: 100px;}
+page{background: #eee;}
+.tab{float: left;width:100%;height:36px;position: relative;padding-left: 5px;padding-right: 5px;margin-top: 10px;}
+.tab .r_select:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background: #fff;  border-bottom: none; border-radius: .5em .5em 0 0;  transform: perspective(.5em) rotateX(1deg); transform-origin: top right; }
+
+.tab .l{position:absolute;height: 32px;line-height: 32px;background:#ddd;top:4px;border-radius: .5em .5em 0 0;width: 50%;left:8px;text-align: center;}
+.tab .r{position:absolute;height: 32px;line-height: 32px;background:#ddd;top:4px;border-radius: .5em .5em 0 0;width: 50%;right:8px;text-align: center;}
+
+.tab .l_select:before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; background: #fff;  border-bottom: none; border-radius: .5em .5em 0 0;  transform: perspective(.5em) rotateX(1deg); transform-origin: top left; }
+.tab .l_select{height:34px;line-height: 34px;z-index: 10;top: 0;background: #fff;left: 0;}
+.tab .r_select{height:34px;line-height: 34px;z-index: 10;top: 0;background: #fff;right: 0;}
+
+.info_box{float: left;width: 100%;background: #fff;border-radius: .5em .5em .5em .5em;padding:10px;}
+.info_box .tt{float: left;width: 100%;height: 32px;line-height: 32px;font-size: 14px;}
+.info_box .addr{float: left;width: 100%;line-height: 32px;font-size: 22px;font-weight: bold;max-height: 64px;}
+.info_box .tt text{color: #09c;}
+
+.guest_info{float: left;width: 100%;border-top:1px solid #eee;margin-top: 10px;padding-top:5px;}
+.guest_info .select_time{float: left;width: 40%;}
+.guest_info .h{float: left;width: 100%;height:24px;line-height: 24px;color: #999;}
+.select_phone{float: left;width: 60%;}
+.guest_info .phone{float: left;width: 100%;font-weight: bold;}
+
+.list,.msg_box{float: left;width: 100%;padding:10px;background: #fff;border-radius: .5em .5em .5em .5em;margin-top: 15px;}
+.list .tt{float: left;width: 100%;height: 42px;line-height: 42px;font-size: 18px;font-weight: bold;margin-bottom: 10px;}
+.list .tt text{margin-right: 10px;font-size: 24px;font-weight: normal;line-height: 40px;float: left;}
+
+
+.show_cart{position: fixed;width: 90%;height: 56px;margin-left:5% ;background: #333;border-radius: 28px;bottom:-100px;z-index: 1000;color: #fff;padding-left: 56px;}
+.iconbox{width: 46px;height: 46px;position: absolute;border-radius: 50%;text-align: center;line-height: 46px;left:5px;background:rgba(255,255,255,0.2);top: 5px;}
+.iconbox .iconfont{font-size:26px;}
+.iconbox .num{position: absolute;width: 18px;height: 18px;background: #fed351;color: #000;text-align: center;line-height: 18px;font-size: 12px;border-radius: 50%;right:-5px;}
+.show_cart .buy_bt{height: 46px;line-height: 46px;background: #fed351;border-radius: 23px;color: #000;padding-right: 20px;padding-left: 20px;font-weight: bold;font-size: 18px;position: absolute;right: 5px;top:5px}
+
+.show_cart .price{float: left;height: 32px;line-height: 32px;width: 100%;font-size: 26px;margin-top: 3px;padding-left: 8px;font-weight: bold;}
+.show_cart .price text{font-size: 16px;font-weight: normal;}
+.show_cart .info{float: left;height: 18px;line-height: 18px;color: #999;font-size: 12px;margin-left: 8px;}
+.cart_show{bottom: 20px;}
+
+
+.s_item{float: left;width: 100%;height:90px;padding-top:8px;padding-bottom:8px;padding-left: 90px;padding-right: 100px;}
+.s_item image{height: 80px;width: 80px;position:absolute;left: 0;top: 0;border-radius:8px;}
+.s_item .title{float: left;width: 100%;height: 24px;line-height: 24px;overflow: hidden;font-weight: bold;}
+.s_item .info{float: left;width: 100%;line-height: 16px;color: #f44;font-size: 14px;overflow: hidden;}
+.price_box{position: absolute;width: 100px;right: 0;top: 0;text-align: right;}
+
+.price_box .price{float: left;width: 100%;height: 24px;line-height: 24px;overflow: hidden;font-weight: bold;}
+.price_box .num{float: left;width: 100%;line-height: 16px;color: #666;font-size: 14px;overflow: hidden;}
+.price_box .xiaoji{float:left;width: 100%;height: 30px;line-height: 30px;color: #666;}
+
+.msg_box input{float: left;width: 100%;font-size: 14px;color: #666;}
+
+.total{float: left;width: 100%;height: 42px;line-height: 42px;border-top: 1px solid #eee;font-size: 14px;text-align: right;margin-top: 15px;}
+.total text{font-size: 20px;font-weight: bold;}
+
+.guest_info input{float: left;width: 100%;height: 32px;line-height: 32px;}
+
+.hh{float: left;width: 100%;text-align: center;color: #999;font-size: 14px;height:20px;line-height: 20px;margin-top: 15px;}
+
+.go_submit{background: #000 !important;color: #fed351 !important;}
+
+.warn{float: left;width: 100%;height: 40px;line-height: 40px;background: rgb(247, 180, 180,0.6);margin-top:10px;color: #f44;border-radius: 5px;padding-left: 10px;padding-right: 10px;}
+
+

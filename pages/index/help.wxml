@@ -1,0 +1,15 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+60}}px">
+
+<view class="box" wx:for="{{list}}" wx:key="i" wx:index="index">
+<view class="tt">{{index}}</view>
+
+<view class="h" wx:for="{{item}}" wx:key="i">{{item}}</view>
+</view>
+
+
+</view>
+<template is="login" data="{{login_show}}"></template>

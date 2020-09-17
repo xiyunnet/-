@@ -1,0 +1,34 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+60}}px">
+
+<view class="list s" wx:for="{{list}}" wx:key="i" wx:index="index">
+<view class="i">
+订单:{{item.order_id}}
+<text>日期:{{item.date}}</text>
+</view>
+
+<view class="orders" wx:for="{{item.order}}" wx:key="i" >
+<view class="item" wx:for="{{item}}" wx:key="i">
+<image src="{{item.img}}"></image>
+<view class="title">{{item.name}}</view>
+<view class="price" wx:if="{{!item.style_title}}">￥{{item.price}} ×{{item.num}}<text>￥{{item.total}}</text></view>
+<view class="price" wx:if="{{item.style_title}}">￥{{item.style_cart.price}} ×{{item.style_cart.num}}<text>￥{{item.style_cart.total}}</text></view>
+<view class="info" wx:if="{{item.style_title}}">{{item.style_cart.info}}</view>
+</view>
+</view>
+
+<view class="total"><text class="o_info">{{item.state_ac}}</text>数量:{{item.num}} 合计:￥<text>{{item.total}}</text></view>
+
+<view class="bt">
+<view class="iconfont icon-cart3" bindtap="buy_again" data-id="{{item.id}}" data-index="{{index}}"> 继续购买</view>
+<view class="iconfont icon-share1"> 分享</view></view>
+
+</view>
+
+
+
+</view>
+<template is="login" data="{{login_show}}"></template>

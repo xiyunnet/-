@@ -1,0 +1,133 @@
+<template name="login">
+<view class="login login_box_{{login_box_show}} m" style="{{login_bg?'background:url('+login_bg+') no-repeat center;background-size:cover':''}}">
+<button open-type="getUserInfo" type="primary" bindgetuserinfo="go_login" class="iconfont iconwechat"> <text>微信登录</text></button>
+<view class="bt" bindtap="go_login" data-c="close" style="color:#666">取消</view>
+</view>
+</template>
+
+<template name="nav">
+<view class="nav" style="top:{{nav.top}}px">
+<view class="nav_top iconfont {{nav.icon}} ss" bindtap="{{nav.ac}}" data-url="{{nav.url}}">
+<text class="nav_text" wx:if="{{nav.text}}">{{nav.text}}</text>
+</view>
+<text class="title">{{nav.title}}</text>
+
+</view>
+</template>
+
+
+<template name="nav_bottom">
+<view class="nav_bottom ss">
+<view class="iconfont icon-home1 {{nav.is_select==1?'is_select':''}}"></view>
+<view class="iconfont icon-nav {{nav.is_select==2?'is_select':''}}">
+<view class="icon" wx:if="{{nav_bottom_show==1}}"></view>
+</view>
+<view class="iconfont icon-user1 {{nav.is_select==3?'is_select':''}}"></view>
+</view>
+</template>
+
+
+
+<template name="login">
+<view class="login_box" wx:if="{{login_show=='show'}}" style="{{shop.login_bg?'background:url('+shop.login_bg+') no-repeat center;background-size:cover':''}}">
+
+<view class="shop_logo" wx:if="{{shop.ct.logo}}">
+<image src="{{shop.ct.logo}}" mode="aspectFill"></image>
+</view>
+
+<button class="t" type="primary" open-type="getUserInfo" bindgetuserinfo="login" class="iconfont icon-wechat"><text>微信登录</text></button>
+<view class="no_login" bindtap="login" data-c="close">取 消</view>
+<view class="login_info t">羲云网络提供技术支持</view>
+</view>
+
+</template>
+<template name="back">
+<view class="top_menu back" style="top:{{nav_top}}px">
+<view class="iconfont icon-angle-left t" bindtap="back"></view>
+<view class="title t">{{menu_title}}</view>
+</view>
+</template>
+
+<template name="menu">
+<view class="top_menu" style="top:{{nav_top}}px">
+<view class="menu_icon iconfont icon-nav t" bindtap="menu_show"></view>
+<view class="title t">{{shop.ct.shot_name?shop.ct.shot_name:menu_title}}</view>
+</view>
+
+<scroll-view class="left_menu m left_menu_{{menu_show}}" scroll-y="true">
+<view class="top_info" style="background:url({{shop.ct.img[0]}}) no-repeat center">
+<view class="close_icon iconfont icon-close" bindtap="menu_close" style="top:{{nav_top}}px"></view>
+<view class="shop_icon" style="margin-top:{{nav_top+20}}px;background:url({{shop.user?shop.user.logo:shop.ct.logo}}) no-repeat center;background-size:cover"></view>
+
+</view>
+
+<view class="menu_group">
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/shop?id={{shop.ct.id}}">
+<view class="iconfont icon-home2"></view>
+<text>店铺信息</text>
+</view>
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/cart_list?id={{shop.ct.id}}" wx:if="{{shop.user}}">
+<view class="iconfont icon-nav"></view>
+<text>我的订单</text>
+</view>
+
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/shops" >
+<view class="iconfont icon-daqiashise"></view>
+<text>附近餐厅</text>
+</view>
+
+</view>
+
+
+<view class="menu_group" wx:if="{{shop.user.id==shop.ct.user_id}}">
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/order_adm?id={{shop.ct.id}}" >
+<view class="iconfont icon-fukuan"></view>
+<text>订单管理</text>
+</view>
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/edit/list" >
+<view class="iconfont icon-food"></view>
+<text>菜品管理</text>
+</view>
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/edit/style_list" >
+<view class="iconfont icon-shuru"></view>
+<text>属性管理</text>
+</view>
+
+</view>
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/share?id={{shop.ct.id}}" >
+<view class="iconfont icon-fenxiang"></view>
+<text>分享有礼</text>
+</view>
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/shop" >
+<view class="iconfont icon-md-ribbon"></view>
+<text>一键开店</text>
+</view>
+
+
+<view class="left_menu_item" bindtap="go" data-url="/pages/index/about_us" >
+<view class="iconfont icon-comments-o"></view>
+<text>关于我们</text>
+</view>
+
+
+<view class="left_menu_item" wx:for="{{left_menu}}" wx:key="a" bindtap="{{item.ac}}">
+<view class="iconfont {{item.icon}}"></view>
+<text>{{item.text}}</text>
+</view>
+
+
+
+
+</scroll-view>
+
+
+<scroll-view class="right_menu m right_menu_{{menu_show}}" bindtap="menu_close"></scroll-view>
+
+</template>

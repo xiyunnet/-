@@ -1,0 +1,205 @@
+<import src="../temp.wxml"/>
+
+
+<template is="menu" data="{{nav_top,left_menu,right_menu,menu_show,menu_title,shop}}"></template>
+<view class="main" style="padding-top:{{nav_top+50}}px">
+
+<view class="default_mode" wx:if="{{mode=='default_mode'}}">
+<view class="lx" wx:for="{{shop.cc}}" wx:key="key" wx:index="index">
+
+<view class="c">{{index}}</view>
+<view class="ll " wx:for="{{item}}" wx:key="ii" wx:index="index">
+<view class="l {{item.is_select?'select':''}}">
+<view class="title">{{item.name}}</view>
+<view class="price">
+<text>￥</text>{{item.p0}}<text>.{{item.p1}}</text>
+<view class="iconfont  m {{item.is_select?'is_select icon-fangxingxuanzhongfill':'icon-fangxingweixuanzhong'}}" bindtap="add_cart" data-id="{{item.id}}" data-index="{{item.c}}" data-in="{{index}}"></view>
+
+</view>
+</view>
+
+</view></view></view>
+
+
+<view class="new_mode">
+<view class="top_adv">
+<swiper indicator-dots="true" indicator-active-color="#f44" autoplay="true" interval="8000">
+<swiper-item wx:for="{{shop.ct.img}}" wx:key="i" >
+<image src="{{item}}" mode="widthFix"></image>
+</swiper-item>
+</swiper>
+
+</view>
+
+<view class="items">
+<scroll-view class="left" scroll-y="{{main_scroll}}" show-scrollbar="false">
+<view class="item {{index==is_select_c?'is_select':''}}" wx:for="{{shop.cc}}" wx:key="cc" wx:index="index" bindtap="change_c" data-c="{{index}}">
+<view class="text">{{item.key}}<text wx:if="{{item.num>0}}">{{item.num}}</text></view>
+
+</view>
+
+</scroll-view>
+
+<scroll-view class="right {{cart_num>0?'have_cart':''}}" show-scrollbar="false" scroll-into-view="index_{{select_c}}" scroll-y="{{main_scroll}}" scroll-with-animation="true" bindscroll="page_scroll" enhanced="true">
+<view class="it" wx:for="{{shop.cc}}" wx:key="key" wx:index="index">
+<view class="cc" id="index_{{index}}">{{item.key}}</view>
+<view class="ll " wx:for="{{item.val}}" wx:key="ii" wx:index="index">
+
+<view class="tj_item s"  wx:if="{{item.is_new==1 || item.is_hot==1}}">
+<image src="{{item.img}}" mode="aspectFill"></image>
+
+<view class="title">{{item.name}}</view>
+<view class="price"><text>￥</text>{{item.p0}}<text>.{{item.p1}}</text></view>
+<view class="iconfont jiao icon-shoucangjiaobiao" wx:if="{{item.is_new==1 && item.is_hot==0}}"></view>
+<view class="iconfont jiao icon-tuijianjiaobiao" wx:if="{{item.is_hot==1}}"></view>
+
+<view class="go_buy">
+<view wx:if="{{!item.style}}">
+<view class="iconfont icon-add3" bindtap="add_cart" data-id="{{item.id}}" data-index="{{item.top_index}}" data-in="{{index}}" data-c="add"></view>
+<view class="num m" wx:if="{{item.is_buy>0}}">{{item.is_buy}}</view>
+<view class="iconfont icon-jian m" wx:if="{{item.is_buy>0}}" bindtap="add_cart" data-id="{{item.id}}" data-index="{{item.top_index}}" data-in="{{index}}" data-c="jian"></view>
+</view>
+
+<view wx:if="{{item.style}}">
+<view class="buy_bt" bindtap="open_style" data-id="{{item.id}}" data-in="{{index}}" data-index="{{item.top_index}}">选规格
+<text wx:if="{{item.is_buy>0}}">{{item.is_buy}}</text>
+</view>
+</view>
+</view>
+
+</view>
+
+<view class="dft_item s" wx:if="{{item.is_new!=1 && item.is_hot!=1}}">
+<image src="{{item.img}}" mode="aspectFill"></image>
+
+<view class="title">{{item.name}}</view>
+<view class="price"><text>￥</text>{{item.p0}}<text>.{{item.p1}}</text></view>
+
+
+<view class="go_buy">
+<view wx:if="{{!item.style}}">
+<view class="iconfont icon-add3" bindtap="add_cart" data-id="{{item.id}}" data-index="{{item.top_index}}" data-in="{{index}}" data-c="add"></view>
+<view class="num m" wx:if="{{item.is_buy>0}}">{{item.is_buy}}</view>
+<view class="iconfont icon-jian m" wx:if="{{item.is_buy>0}}" bindtap="add_cart" data-id="{{item.id}}" data-index="{{item.top_index}}" data-in="{{index}}" data-c="jian"></view>
+</view>
+
+<view wx:if="{{item.style}}">
+<view class="buy_bt" bindtap="open_style" data-id="{{item.id}}" data-in="{{index}}" data-index="{{item.top_index}}">选规格
+<text wx:if="{{item.is_buy>0}}">{{item.is_buy}}</text>
+</view>
+</view>
+</view>
+
+
+</view>
+
+
+</view>
+
+</view>
+
+</scroll-view>
+
+
+
+</view>
+
+</view>
+
+
+
+
+
+</view>
+
+
+
+
+<view class="show_cart m {{cart_num>0?'cart_show':''}}">
+<view class="iconbox" bindtap="show_select_win"><view class="num">{{cart_num}}</view>
+<view class="iconfont icon-food"></view>
+</view>
+<view class="price"><text>￥</text>{{total_price}}</view>
+<view class="info">{{shop.ct.ps}}</view>
+<view class="buy_bt" bindtap="go" data-url="/pages/index/cart">选好了</view>
+
+</view>
+
+
+
+
+<view class="win_box m s win_box_{{style_win_show}}">
+<view class="box"><view class="handle">{{cy.name}}</view><view class="close_bt iconfont icon-close" bindtap="win_close" data-c="style_win_show"></view>
+<scroll-view class="scroll_box" scroll-y="true">
+<view class="style_box" wx:for="{{cy.style_list}}" wx:key="key" wx:index="index">
+<view class="style_c_t">{{index}}</view>
+<view class="style_bt " wx:for="{{item}}" wx:key="key" wx:index="index" bindtap="style_select" data-index="{{index}}" data-c="{{item.s}}"><text class="{{style_temp[item.s]==item.title?'is_select':''}}">{{item.title}}</text></view>
+
+</view>
+</scroll-view>
+
+<view class="style_select_info">
+<view class="pirce">￥{{style_temp.total}}</view>
+<view class="info">已选:{{style_temp.info}}</view>
+
+<view class="go_buy" >
+<view class="iconfont icon-add3" bindtap="style_add" data-c="add"></view>
+<view class="num m" wx:if="{{style_temp.num>0}}">{{style_temp.num}}</view>
+<view class="iconfont icon-jian m" wx:if="{{style_temp.num>0}}" bindtap="style_add" data-c="jian"></view>
+</view>
+
+</view>
+
+<view class="is_select_bt" bindtap="style_select_ok">选好了</view>
+</view></view>
+<view class="win_bg win_bg_{{style_win_show}}" bindtap="win_close" data-c="style_win_show"></view>
+
+
+
+
+<view class="select_win m select_win_{{select_win_show}}">
+<view class="select_handle"><text class="tt">已选菜品</text><text class="iconfont icon-delete" bindtap="clean_cart">清空</text></view>
+
+<scroll-view scroll-y="true">
+<view class="item" wx:for="{{shop.cc}}" wx:key="i">
+<view class="it" wx:for="{{item.val}}" wx:key="key" wx:if="{{items.is_buy>0}}" wx:for-item="items">
+
+<view wx:if="{{items.style_cart}}" wx:for="{{items.style_cart}}" wx:key="k">
+<view class="s_item">
+<image src="{{items.img}}" mode="aspectFill"></image>
+<view class="title">{{items.name}}</view>
+<view class="info">已选:{{item.info}}</view>
+<view class="price">￥{{item.price}}
+<view class="num">
+<view class="iconfont icon-add3" bindtap="cart_edit" data-id="{{items.id}}" data-info="{{item.info}}" data-c="add"></view>
+<text>{{item.num}}</text>
+<view class="iconfont icon-jian" bindtap="cart_edit" data-id="{{items.id}}" data-info="{{item.info}}" data-c="jian"></view>
+</view>
+
+</view>
+</view>
+</view>
+<view wx:if="{{!items.style_cart}}" class="s_item">
+<image src="{{items.img}}"></image>
+<view class="title">{{items.name}}</view>
+<view class="info"></view>
+<view class="price">￥{{items.price}}
+<view class="num">
+<view class="iconfont icon-add3" bindtap="cart_edit" data-id="{{items.id}}"  data-c="add"></view>
+<text>{{items.is_buy}}</text>
+<view class="iconfont icon-jian" bindtap="cart_edit" data-id="{{items.id}}"  data-c="jian"></view>
+</view></view>
+</view>
+
+</view>
+</view>
+
+</scroll-view>
+
+</view>
+<view class="win_bg  win_bg_{{select_win_show}}" bindtap="win_close" data-c="select_win_show" style="z-index:88"></view>
+
+
+
+
+<template is="login" data="{{login_show,shop}}"></template>

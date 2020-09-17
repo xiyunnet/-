@@ -1,0 +1,15 @@
+.image_tool{float: left;width: 100%;}
+.image_tool .iconfont{float: left;height: 32px;line-height: 32px;margin-left: 10px;font-size: 20px;padding-left: 15px;padding-right: 15px;}
+.image_tool .select{background:#f44;color: #fff;}
+
+.image_box{float: left;width: 100%;padding:10px;}
+.image_box .img{float: left;width: 33.33%;padding:5px;height: 100px;}
+.image_box .img .im{float: left;width: 100%;height: 100%;position: relative;border-radius: 5px;overflow: hidden;z-index: 100;}
+.select_box{position: absolute;width: 100%;bottom:4px;height: 25px;line-height: 25px;padding-left:10px;}
+.image_box .img_p{position: absolute;width: 100%;height: 70px;left: 0;top: 0;}
+.select_box .iconfont{color: #fff;font-size:24px;}
+
+.can_submit{float: right !important;font-size: 16px;background:#f44;color: #fff;margin-right: 10px;display: block !important;}
+.order{position: absolute;width: 20px;height: 20px;background:#fff;border-radius: 50%;text-align: center;line-height: 20px;font: 14px;color: #333;right: 5px;top: 5px;}
+
+.img_del{color: #f44;display: block !important;}

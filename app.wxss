@@ -1,0 +1,78 @@
+@import "/pages/font.wxss";
+body{box-sizing:border-box;font-size: 16px;background:#fefefe;}
+view,text,scroll-view,icons,swiper-item,block,swiper{box-sizing:border-box !important;position: relative;}
+.m{-webkit-transition:all .3s ease-in-out;-moz-transition:all .3s ease-in-out;transition:all .3s ease-in-out;}
+.s{box-shadow:1px 2px 5px 0 rgba(0,0,0,0.1)}
+.box_s{box-shadow:0px 20px 20px -15px rgba(0,0,0,0.3) !important}
+.t{text-shadow: 1px 1px rgba(0,0,0,0.1)}
+.nav{position: fixed;width: 100%;top: 0;left: 0;z-index: 10000;height: 48px;}
+.jiaonang{float:left;height: 32px;line-height: 32px;background: rgba(255,255,255,0.6);margin-left: 10px;border-radius: 18px;margin-top:8px;padding-left: 12px;padding-right: 12px;font-size: 15px;font-weight: bold;box-shadow: 1px 1px 0 0 rgba(0,0,0,0.05),-1px -1px 0 0 rgba(0,0,0,0.05)}
+.jiaonang text{margin-right:5px;border-right: 1px solid rgba(0,0,0,0.05);padding-right: 5px;}
+
+.login{position: fixed;width: 100%;height: 100vh;background: -webkit-linear-gradient(#31c2d0,#d1f5f8);left: 0;top:150vh;z-index: 999999;background-size: cover}
+
+
+.login button{float: left;width:80% !important;color: #fff;font-size:28px;margin-left: 10% !important;margin-top:70vh;height:60px !important;line-height:40px !important;border-radius: 30px;font-weight: normal}
+.login button text{font-size: 18px;margin-left: 10px;}
+.login .bt{float: left;width: 100%;text-align: center;margin-top: 15px;color: #fff;font-size: 16px;}
+.login_box_show{top: 0 !important}
+
+.nav{width: 100%;height: 42px;position: fixed;z-index: 1000;top: 0;left: 0;line-height: 42px;text-align: center;}
+.nav .nav_top{float: left;height: 32px;padding-left: 10px;padding-right: 10px;background: rgba(255,255,255,0.6);margin-top: 6px;border-radius: 16px;margin-left: 15px;font-size:22px;line-height: 32px;color: #000;font-weight: bold;}
+.ss{box-shadow:1px 1px 0px 0 rgba(0,0,0,0.05) ,-1px -1px 0px 0 rgba(0,0,0,0.05);}
+.nav .nav_text{font-size: 14px;font-weight: normal;margin-left: 8px;font-weight: normal;height: 32px;line-height: 32px;display: inline-block;}
+.nav .title{width: 100%;height: 42px;position: absolute;left: 0;line-height: 50px;font-size: 20px;z-index: -1;}
+
+.nav_bottom{position: fixed;width: 100%;height: 60px;line-height: 60px;left: 0;z-index: 1000;bottom: 0;}
+.nav_bottom .iconfont{float: left;width: 33.33%;text-align: center;font-size: 32px;position: relative;}
+.nav_bottom .is_select{color: #f44;}
+.nav_bottom .icon{position: absolute;width: 12px;height:12px;display: inline-block;background: #f44;border-radius: 50%;top: 13px;left: 55%;}
+
+
+.login_box{position: fixed;width: 100vw;height: 100vh;z-index: 100000;left: 0;top: 0;background:-webkit-linear-gradient(#31c2d0,#d1f5f8);background-size: cover;}
+.login_box button{position: absolute;width: 80vw !important;left: 10vw;height: 68px;line-height: 48px !important;background: #fed351 !important;bottom:30vh;font-size: 30px;border-radius: 34px;font-weight: normal;color: #000;}
+.login_box button text{margin-left: 10px;font-size: 20px;}
+.login_box .no_login{position: absolute;width: 100%;left: 0;bottom: 23vh;text-align: center;color: #000;font-size: 16px;}
+
+.top_menu{width: 100%;height: 42px;position: fixed;z-index: 1000;top: 0;left: 0;line-height: 42px;text-align: center;}
+
+.menu_icon{float: left;font-size: 34px;margin-left: 15px;margin-top: 5px;color:rgba(255,255,255,0.8);}
+.top_menu .title{width: 100%;height: 42px;position: absolute;left: 0;line-height:52px;font-size: 20px;z-index: -1;color:rgba(255,255,255,0.8);text-align: left;padding-left: 60px;font-weight: bold;}
+
+.left_menu{position: fixed;width: 70vw;height: 100vh;z-index: 10000;left:-100vw;top: 0;background:#fff;}
+.right_menu{position: fixed;width: 30vw;height: 100vh;z-index: 10000;right:-50vw;top: 0;background:rgba(0,0,0,0.8);}
+
+.left_menu .top_info{float: left;width: 100%;height:220px;background: #31c2d0;background-size: cover !important;position: relative;}
+.left_menu .top_info .close_icon{position: absolute;top: 10px;right: 10px;color: rgba(255,255,255,0.6);font-size: 20px;}
+.left_menu_show{left: 0 !important;}.right_menu_show{right: 0 !important;}
+.left_menu .shop_icon{width: 64px;height: 64px;background:#fff;left: 20px;float: left;border-radius: 50%;}
+
+.left_menu_item{float: left;width: 100%;height:60px;line-height: 60px;padding-left: 10px;padding-right: 10px;overflow: hidden;color: #666;}
+.left_menu_item .iconfont{float: left;font-size: 24px;}
+.left_menu_item text{float: left;margin-left: 10px;font-size: 18px;}
+
+
+
+.win{position: fixed;width: 100%;height: 75vh;left: 0;bottom: 0;z-index: 100000;background:#fff;bottom: -130vh;}
+.handle{float: left;width: 100%;height: 42px;line-height: 42px;padding-left: 10px;padding-right: 10px;border-bottom: 1px solid #eee;}
+.handle .iconfont{float: right;font-size: 22px;color: #999;}
+.handle .title{float: left;font-size: 16px;color: #666;width:auto;}
+.win_bg{width: 100%;height: 100vh;left: 0;top: 0;z-index: 99999;background:rgba(0, 0, 0, 0.75);display: none;position: fixed;}
+
+.win textarea{float: left;width: 100%;height: 30vh;}
+.win .bt{float: left;width: 100%;}
+.win .bt view{float: left;width: 100%;height: 42px;line-height: 42px;text-align: center;background:#09c ;color: #fff;font-size: 18px;}
+.win_box{float: left;width: 100%;padding: 10px;}
+
+.win_show{bottom: 0 !important;}.win_bg_show{display: block !important;}
+
+.shop_logo{float: left;height: 140px;text-align: center !important;margin-top: 25vh;display: inline-block;width: 100%;}
+.shop_logo image{width: 140px;height: 140px;border-radius: 50%;margin:0 auto}
+
+.login_info{position: absolute;width: 100%;text-align: center;color: #fff;text-align: center;bottom:10px;left: 0;}
+
+.back .title{line-height: 50px;height:50px;}
+.back{background: #fed351;height:50px;line-height: 50px;}
+.back .iconfont{float: left;font-size:40px;margin-left: 15px;color:rgba(255,255,255,0.8);}
+
+.menu_group{float: left;width: 100%;border-bottom: 1px solid #efefef;}

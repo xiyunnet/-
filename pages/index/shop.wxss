@@ -1,0 +1,31 @@
+.creat_box{position: fixed;width: 100%;background:#fff;left: 0;top: 0;width: 100%;height: 100vh;z-index: 100;}
+.creat_bt{position: absolute;width: 90%;left: 5%;height: 68px;line-height: 68px;background:green;bottom:20vh;text-align: center;color: #fff;font-size: 20px;border-radius: 10px;}
+.main{float: left;width: 100%;padding-bottom: 20px;}
+swiper{float: left;width: 100%;height:70vh;}
+swiper view{float: left;width: 100%;height: 100%;}
+
+.img_tool{position: absolute;width: 100%;height:8vh;line-height:8vh;top: 62vh;z-index: 10;background:rgba(0, 0, 0, 0.4) ;}
+.img_tool view{float: right;margin-right: 20px;font-size: 30px;color: #fff;}
+.v{position: relative;}
+.titles{float: left;width: 100%;padding: 10px;font-size: 30px;line-height: 38px;font-weight: bold;}
+.edit{position: absolute;font-size: 18px;color: #f44;right:10px;top: 0;z-index: 100;}
+
+.in{float: left;width: 100%;height: 32px;line-height: 32px;padding-right: 10px;padding-left: 10px;}
+.share_bt{position: absolute;width: 60px;height: 50px;line-height: 30px;font-size:28px;color: #f44;z-index: 100;right: 0;top:88px;text-align: center;}
+.share_bt text{float: left;width: 100%;height: 16px;line-height: 16px;font-size: 14px;}
+
+.menu_icon{margin-left: 10px;font-size:28px;}
+
+.info{float: left;width: 100%;line-height: 32px;padding-right: 10px;padding-left: 10px;font-size: 20px;}
+.shop_info{float: left;width: 100%;padding:10px;}
+.info_title{float: left;width: 100%;height: 32px;line-height: 32px;font-size: 16px;border-bottom: 1px solid #eee;font-weight: bold;}
+
+.shop_i{float: left;width: 100%;line-height: 32px;padding-left: 90px;position: relative;padding-right: 10px;}
+.shop_i text{position: absolute;width: 90px;left: 0;}
+.shop_i .logo{float: left;width: 64px;height: 64px;border-radius: 50%;}
+.shop_i .h{float: left;width: 100%;font-size: 14px;color: #999;}
+.view_bt{float: left;width: 90%;margin-left: 5%;height: 60px;line-height: 60px;background: #09c;color: #fff;font-size: 20px;text-align: center;border-radius: 5px;margin-top: 10px;}
+.bbt{float: left;width: 40%;margin-left: 5%;height: 50px;line-height: 50px;background: #09c;color: #fff;font-size: 20px;text-align: center;border-radius: 5px;margin-top: 10px;}
+
+.img_tool text{margin-left: 10px;color: #fff;}
+.top_menu{background: none;}

@@ -1,0 +1,37 @@
+<import src="../temp.wxml"/>
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="image_tool" style="margin-top:{{nav_top+60}}px">
+<view class="iconfont icon-upload m s" bindtap="img_up">上传</view>
+<view class="iconfont icon-remove m s {{select_num>0?'img_del':''}}" style="display:none" bindtap="img_del"></view>
+<view bindtap="img_submit" class="m s iconfont  {{select_num>0?'can_submit':''}}" style="display:none">确定</view>
+</view>
+
+
+<view class="image_box">
+
+<view wx:for="{{images}}" wx:key="i" class="img" wx:index="index" >
+<view style="background:url({{item.img_120}}) no-repeat center;background-size:cover" class="im">
+<view class="img_p" bindtap="img_show" data-index="{{index}}" ></view>
+<text wx:if="{{item.order>0}}" class="order">{{item.order}}</text>
+<view class="select_box" >
+<view class="iconfont {{item.is_select==1?'icon-fangxingxuanzhongfill':'icon-fangxingweixuanzhong'}} m" bindtap="select" data-index="{{index}}"></view>
+</view>
+
+</view>
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+<template is="login" data="{{login_show}}"></template>

@@ -1,0 +1,13 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+60}}px">
+<view class="tt">关于我们</view>
+
+<view class="h" wx:for="{{list}}" wx:key="i">{{item}}</view>
+
+
+
+</view>
+<template is="login" data="{{login_show}}"></template>

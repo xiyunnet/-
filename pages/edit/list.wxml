@@ -1,0 +1,94 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+45}}px">
+<view class="bts">
+<view class="m s" style="float:right" bindtap="new_cy">新菜肴</view>
+<view class="m s" style="float:right" bindtap="go" data-url="/pages/index/help">帮助</view>
+</view>
+
+<view class="box">
+<view class="items" wx:for="{{shop.cy}}" wx:key="i" wx:index="index">
+<image src="{{item.img}}" mode="widthFix" bindtap="get_img" data-index="{{index}}"></image>
+<view class="l"><text>名称</text>
+<input value="{{item.name}}" bindblur="change_val" data-c="name" data-index="{{index}}"></input>
+</view>
+
+<view class="l"><text>价格</text>
+<input value="{{item.price}}" bindblur="change_val" data-c="price" type="digit" data-index="{{index}}"></input>
+</view>
+
+<view class="l"><text>类别</text>
+<input value="{{item.c}}" bindblur="change_val" data-c="c" data-index="{{index}}"></input>
+<view class="iconfont icon-nav" bindtap="get_c" data-index="{{index}}"></view>
+</view>
+
+<view class="l"><text>排序</text>
+<input value="{{item.o}}" bindblur="change_val" data-c="o" type="number" data-index="{{index}}"></input>
+</view>
+
+<view class="l"><text>属性</text>
+<input value="{{item.style}}" ></input>
+
+<view class="iconfont icon-jinpai" bindtap="get_s" data-index="{{index}}"></view>
+</view>
+
+<view class="l"><text>说明</text>
+
+<textarea value="{{item.info}}" bindblur="change_val" data-c="info" data-index="{{index}}"></textarea>
+</view>
+<view class="l">
+</view>
+
+<view class="start_bt m s is_stop" style="bottom:40px" wx:if="{{item.state!=1}}" bindtap="go_start" data-index="{{index}}" data-id="{{item.id}}">启用</view>
+<view class="start_bt m s is_stop" wx:if="{{item.state!=1}}" bindtap="cy_del" data-id="{{item.id}}" data-index="{{index}}">删除</view>
+<view class="start_bt m s " wx:if="{{item.state==1}}" bindtap="go_start" data-index="{{index}}" data-id="{{item.id}}">停用</view>
+
+<view class="cy_ts" wx:if="{{item.state==1}}">
+<text class="iconfont icon-jinpai {{item.is_hot==1?'is_select':''}}" bindtap="change_v" data-c="is_hot" data-i="{{item.id}}" data-d="{{item.is_hot}}" data-index="{{index}}"></text>
+<text class="iconfont icon-miaosha {{item.is_new==1?'is_select':''}}" bindtap="change_v" data-c="is_new" data-i="{{item.id}}" data-d="{{item.is_new}}" data-index="{{index}}"></text>
+</view>
+
+
+</view></view>
+
+
+
+
+
+
+
+
+
+</view>
+
+
+<view class="win m win_c_{{show_select_s}} style_box">
+<view class="handle"><view class="title">选择属性/规则</view><view class="iconfont icon-remove" bindtap="win_close" data-c="show_select_s"></view>
+<view class="bt" bindtap="go" data-url="/pages/edit/style_list">修改</view>
+<view class="bt" bindtap="style_select"  style="right:110px">清除</view>
+</view>
+<scroll-view class="win_box">
+<view wx:for="{{style_list}}" wx:key="i" class="item_s " >{{index}}<view class="bt" bindtap="style_select" data-c="{{index}}">选择</view></view>
+
+</scroll-view></view>
+<view class="win_bg win_bg_{{show_select_s}}" bindtap="win_close" data-c="show_select_s"></view>
+
+
+
+
+
+<view class="win m win_c_{{show_select_c}}">
+<view class="handle"><view class="title">选择类别</view><view class="iconfont icon-remove" bindtap="win_close" data-c="show_select_c"></view></view>
+<view class="win_box">
+<view wx:for="{{cy_c}}" wx:key="i" class="item_c m s" bindtap="c_select" data-v="{{item.c}}">{{item.c}}</view>
+
+</view></view>
+<view class="win_bg win_bg_{{show_select_c}}" bindtap="win_close" data-c="show_select_c"></view>
+
+
+
+
+
+<template is="login" data="{{login_show}}"></template>

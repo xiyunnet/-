@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/shop",
+    "pages/index/image",
+    "pages/edit/cy",
+    "pages/edit/list",
+    "pages/edit/style_list",
+    "pages/edit/style_edit",
+    "pages/index/cart",
+    "pages/index/cart_list",
+    "pages/index/shops",
+    "pages/index/order_adm",
+    "pages/index/about_us",
+    "pages/index/help"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "plugins": {}
+}

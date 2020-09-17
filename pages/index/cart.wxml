@@ -1,0 +1,99 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="padding-top:{{nav_top+60}}px">
+
+<view class="tab">
+<view class="l m {{tap_select=='l'?'l_select':''}}" bindtap="select_tap" data-c="l">到店堂食</view>
+<view class="r m {{tap_select=='r'?'r_select':''}}" bindtap="select_tap" data-c="r">外卖配送</view>
+</view>
+<view class="info_box" style="{{tap_select=='r'?'border-top-right-radius: 0;':'border-top-left-radius: 0;'}}">
+<view class="tangshi " wx:if="{{tap_select=='l'}}">
+<view class="tt">门店地址</view>
+<view class="addr">{{shop.ct.addr}}</view>
+<view class="tt" wx:if="{{juli}}">距您{{juli}}km | <text>查看地图</text></view>
+</view>
+
+<view class="tangshi " wx:if="{{tap_select=='r'}}">
+<view class="tt">配送地址</view>
+<textarea class="addr" placeholder="请输入您的配送地址" data-c="addr" bindblur="val_change" value="{{shop.user.addr}}"></textarea>
+
+<view class="tt" wx:if="{{juli}}">距您{{juli}}km | <text>查看地图</text></view>
+</view>
+
+
+<view class="guest_info">
+<view class="select_time">
+<view class="h">顾客信息</view>
+<input placeholder="姓名" data-c="name" bindblur="val_change" value="{{shop.user.ture_name}}"></input>
+</view>
+
+<view class="select_phone">
+<view class="h">预留电话</view>
+<input placeholder="请输入您的手机号码" data-c="phone" bindblur="val_change" value="{{shop.user.phone}}" type="digit"></input>
+</view>
+
+</view>
+
+</view>
+<view class="warn" wx:if="{{shop.ct.warn}}">{{shop.ct.warn}}</view>
+
+
+<view class="list">
+<view class="tt"><text class="iconfont icon-food"></text>菜品清单</view>
+
+<view class="item" wx:for="{{shop.cc}}" wx:key="i">
+<view class="it" wx:for="{{item.val}}" wx:key="key" wx:if="{{items.is_buy>0}}" wx:for-item="items">
+
+<view wx:if="{{items.style_cart}}" wx:for="{{items.style_cart}}" wx:key="k">
+<view class="s_item">
+<image src="{{items.img}}" mode="aspectFill"></image>
+<view class="title">{{items.name}}</view>
+<view class="info">已选:{{item.info}}</view>
+<view class="price_box">
+<view class="price">￥{{item.price}}</view>
+<view class="num">×{{item.num}}</view>
+<view class="xiaoji">小计:￥{{item.total}}</view>
+</view>
+</view></view>
+
+<view wx:if="{{!items.style_cart}}" >
+<view class="s_item">
+<image src="{{items.img}}" mode="aspectFill"></image>
+<view class="title">{{items.name}}</view>
+<view class="info"></view>
+<view class="price_box">
+<view class="price">￥{{items.price}}</view>
+<view class="num">×{{items.is_buy}}</view>
+<view class="xiaoji">小计:￥{{items.total}}</view>
+</view>
+</view></view>
+
+
+</view>
+
+</view>
+<view class="total">小计:￥<text>{{total_price}}</text></view>
+</view>
+
+
+<view class="msg_box">
+<input placeholder="备注：请在此输入您的需求" bindblur="val_change" data-c="info"></input>
+</view>
+
+<view class="hh">羲云网络提交技术支持</view>
+</view>
+
+
+<view class="show_cart m {{cart_num>0?'cart_show':''}}">
+<view class="iconbox" bindtap="show_select_win"><view class="num">{{cart_num}}</view>
+<view class="iconfont icon-food"></view>
+</view>
+<view class="price"><text>￥</text>{{total_price}}</view>
+<view class="info">{{shop.ct.ps}}</view>
+<view class="buy_bt m {{submit==0?'go_submit':''}}" bindtap="submit">{{submit==0?'正在提交':'提交订单'}}</view>
+
+</view>
+
+<template is="login" data="{{login_show,shop}}"></template>

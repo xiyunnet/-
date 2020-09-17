@@ -1,0 +1,71 @@
+<import src="../temp.wxml"/>
+
+<view class="top_menu" style="top:{{nav_top}}px">
+<view class="menu_icon iconfont icon-chevron-left t" bindtap="go_back"></view>
+<view class="title">{{menu_title}}</view>
+</view>
+
+<view class="main">
+
+<view class="img" style="background:url({{shop.img}}) no-repeat center;background-size:cover"></view>
+
+<view class="img_tool" wx:if="{{user_id==shop.user_id && review!=1}}">
+<view class="iconfont icon-md-camera t" bindtap="go" data-url="/pages/index/image?c=cy&id={{shop.id}}&max=1&method=select"></view>
+<text>请使用4：3或者正方形照片</text>
+</view>
+
+
+<view class="title v ">{{shop.name}}
+<view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="name"></view>
+</view>
+
+<view class="share_bt iconfont icon-share1"></view>
+
+<view class="in v">
+<view class="tt">价格:</view>
+<input value="{{shop.price}}" bindblur="change_val" data-c="price" type="digit"></input>
+</view>
+<view class="in v">
+<view class="tt">类别:</view>
+<input value="{{shop.c}}" bindblur="change_val" data-c="c" placeholder="主食，炒菜等，多个用，间隔"></input>
+<view class="iconfont icon-nav edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="get_c" data-c="c"></view></view>
+
+<view class="in v">
+<view class="tt">排序:</view>
+<input value="{{shop.o}}" bindblur="change_val" data-c="o" type="number" placeholder="数值越大越靠前"></input>
+</view>
+
+<view class="in v" style="height:auto">
+<view class="tt">说明:</view>
+<text>{{shop.info}}</text><view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="info"></view></view>
+
+
+<view class="win m win_{{val_show}}">
+<view class="handle"><view class="title">{{win_title}}</view><view class="iconfont icon-remove" bindtap="win_close" data-c="val_show"></view></view>
+<view class="win_box">
+<textarea placeholder="清输入需要更新的文本"   bindinput="val_change" value="{{win_msg}}"></textarea>
+<view class="bt"><view class="go_submit" bindtap="go_submit">更新数据</view></view></view>
+</view>
+<view class="win_bg win_bg_{{val_show}}" bindtap="win_close" data-c="val_show"></view>
+
+<view class="win m win_c_{{show_select_c}}">
+<view class="handle"><view class="title">选择类别</view><view class="iconfont icon-remove" bindtap="win_close" data-c="show_select_c"></view></view>
+<view class="win_box">
+<view wx:for="{{cy_c}}" wx:key="i" class="item_c m s" bindtap="c_select" data-v="{{item.c}}">{{item.c}}</view>
+
+</view></view>
+<view class="win_bg win_bg_{{show_select_c}}" bindtap="win_close" data-c="show_select_c"></view>
+
+
+<view class="view_bt " bindtap="go_start" data-d="{{shop.state}}" wx:if="{{user_id==shop.user_id && shop.state!=1}}">启用</view>
+<view class="view_bt is_stop" bindtap="go_start" data-d="{{shop.state}}" wx:if="{{user_id==shop.user_id && shop.state==1}}">停用</view>
+
+
+
+</view>
+
+
+
+
+
+<template is="login" data="{{login_show}}"></template>

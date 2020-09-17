@@ -1,0 +1,68 @@
+<import src="../temp.wxml"/>
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view wx:if="{{creat_shop==1}}"  class="creat_box" style="background:url(https://www.learnenglishwithwill.com/wp-content/uploads/2015/11/restaurant-book-a-table.jpg) no-repeat center;background-size:cover">
+<view class="creat_bt" bindtap="creat_new">创建我的餐厅</view>
+</view>
+
+<view class="main">
+
+<swiper indicator-dots="true" indicator-active-color="#f44">
+<swiper-item wx:for="{{shop.img}}" wx:key="i">
+<view style="background:url({{item}}) no-repeat center;background-size:cover"></view>
+</swiper-item>
+</swiper>
+<view class="img_tool" wx:if="{{user_id==shop.user_id && review!=1}}">
+<view class="iconfont icon-md-camera t" bindtap="go" data-url="/pages/index/image?c=shop&id={{shop_id}}&max=5"></view>
+
+<text>请使用手机竖屏拍摄照片</text>
+</view>
+
+
+<view class="titles v ">{{shop.name}}
+<view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="name"></view>
+</view>
+
+
+<view class="in v">订餐热线: {{shop.phone}}<view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="phone"></view></view>
+<view class="in v">餐厅地址: {{shop.addr}}<view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="addr"></view></view>
+<view class="in v">营业时间: {{shop.yysj}}<view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="yysj"></view></view>
+
+<view class="info v"><text>{{shop.info}}</text><view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="info"></view></view>
+
+
+<view class="win m win_{{val_show}}">
+<view class="handle"><view class="titles">{{win_title}}</view><view class="iconfont icon-remove" bindtap="win_close" data-c="val_show"></view></view>
+<view class="win_box">
+<textarea placeholder="清输入需要更新的文本"   bindinput="val_change" value="{{win_msg}}"></textarea>
+<view class="bt"><view class="go_submit" bindtap="go_submit">更新数据</view></view></view>
+</view>
+<view class="win_bg win_bg_{{val_show}}" bindtap="win_close" data-c="val_show"></view>
+
+<view wx:if="{{user_id==shop.user_id && review!=1}}" class="shop_info">
+<view class="info_title">餐厅设置</view>
+<view class="shop_i"><text>餐厅LOGO</text><image class="logo" src="{{shop.logo}}" bindtap="go" data-url="/pages/index/image?c=shop_logo&id={{shop_id}}&max=1&method=select"></image></view>
+<view class="shop_i"><text>商店简称</text>{{shop.shot_name}}<view class="h">最多6个汉字</view>
+<view class="iconfont icon-shuru edit" wx:if="{{user_id==shop.user_id && review!=1}}" bindtap="go_edit" data-c="shot_name"></view>
+</view>
+
+</view>
+
+
+<view class="view_bt" bindtap="review" wx:if="{{user_id==shop.user_id && review!=1}}">预览</view>
+<view class="view_bt" bindtap="review" data-c="1" wx:if="{{user_id==shop.user_id && review==1}}">退出预览</view>
+
+<view wx:if="{{user_id==shop.user_id && review!=1}}" >
+<view class="bbt" bindtap="go" data-url="/pages/edit/style_list">属性设置</view><view class="bbt" bindtap="go" data-url="/pages/edit/list">菜肴管理</view>
+
+
+</view>
+
+</view>
+
+
+
+
+
+<template is="login" data="{{login_show}}"></template>

@@ -1,0 +1,44 @@
+<import src="../temp.wxml"/>
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+55}}px">
+
+<input placeholder="规则名称 例如：规则1" class="tttt" bindblur="val_change" data-c="c" value="{{c}}" maxlength="10"></input>
+
+<view class="box" wx:for="{{gz}}" wx:key="i" wx:index="{{index}}">
+<input class="tt" placeholder="属性名称 例如：口味等" bindblur="val_change" data-c="s" value="{{index}}"></input>
+
+<view wx:for="{{item}}" wx:key="i">
+<view class="l" wx:if="{{!item.id}}" >
+<input class="v" placeholder="名称" bindblur="val_change" data-c="title" data-s="{{item.s}}"></input>
+<input class="v" placeholder="金额" bindblur="val_change" data-c="price" data-s="{{item.s}}" value="{{item.price}}"></input>
+<input class="v" placeholder="排序" bindblur="val_change" data-c="o" data-s="{{item.s}}" value="{{item.o}}"></input>
+<view class="bt" bindtap="add">添加</view>
+</view>
+<view class="l" wx:if="{{item.id}}" >
+<input class="v" placeholder="名称" bindblur="value_change" data-c="title" value="{{item.title}}" data-id="{{item.id}}"></input>
+<input class="v" placeholder="金额" bindblur="value_change" data-c="price" value="{{item.price}}" data-id="{{item.id}}"></input>
+<input class="v" placeholder="排序" bindblur="value_change" data-c="o" value="{{item.o}}" data-id="{{item.id}}"></input>
+<view class="bt" bindtap="del" data-id="{{item.id}}">删除</view>
+</view>
+
+
+</view>
+
+
+</view>
+
+
+</view>
+
+<view class="win m win_c_{{style_add_show}}">
+<view class="handle"><view class="tttt">选择类别</view><view class="iconfont icon-remove" bindtap="win_close" data-c="style_add_show"></view></view>
+<view class="win_box"><input></input>
+<view wx:for="{{cy_c}}" wx:key="i" class="item_c m s" bindtap="c_select" data-v="{{item.c}}">{{item.c}}</view>
+
+</view></view>
+<view class="win_bg win_bg_{{style_add_show}}" bindtap="win_close" data-c="style_add_show"></view>
+
+
+
+<template is="login" data="{{login_show}}"></template>

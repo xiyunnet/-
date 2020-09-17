@@ -1,0 +1,18 @@
+<import src="../temp.wxml"/>
+
+
+<template is="back" data="{{nav_top,menu_title}}"></template>
+
+<view class="main" style="margin-top:{{nav_top+60}}px">
+<view class="top_bt"><view class="bt" bindtap="go" data-url="/pages/edit/style_edit">新规则</view></view>
+
+<view class="list" wx:for="{{list}}" wx:key="key" wx:index="index">
+<view class="tt">{{index}}</view>
+
+<view class="bt" bindtap="go" data-url="/pages/edit/style_edit?c={{index}}">修改</view>
+<view class="bt" bindtap="del" data-c="{{index}}">删除</view>
+</view>
+
+</view>
+
+<template is="login" data="{{login_show}}"></template>
